@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --color-nest-dark: #0e1a17;
+  --color-nest-forest: #162a24;
+  --color-nest-pine: #1d362f;
+  --color-nest-surface: #223f37;
+  --color-nest-gold: #d4af37;
+  --color-nest-gold-light: #e6c86e;
+  --color-nest-cream: #f4efe6;
+  --color-nest-muted: #9fb3ab;
+}
+
+html {
+  font-family: var(--font-sans);
+}
+
+.font-display {
+  font-family: var(--font-serif);
+}

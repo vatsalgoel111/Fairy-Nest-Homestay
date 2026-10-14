@@ -1,0 +1,6 @@
+{
+  "name": "Fairy Nest Homestay – Guwahati",
+  "description": "Couple-friendly and budget-friendly homestay in Gandhi Basti, Sarania Hills, Guwahati with attached kitchens, private baths, and complimentary breakfast.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
