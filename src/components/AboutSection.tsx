@@ -1,138 +1,142 @@
 import React from 'react';
-import { Heart, Coffee, ShieldCheck, MapPin, Sparkles, Home } from 'lucide-react';
+import { Heart, Coffee, ShieldCheck, MapPin, Sparkles, Home, Check } from 'lucide-react';
 import { HOMESTAY_INFO } from '../data/homestayData';
 
 export const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="py-20 lg:py-28 bg-[#101e1a] relative overflow-hidden border-t border-[#1d3830]">
-      {/* Background ambient accents */}
-      <div className="absolute top-0 right-1/4 w-80 h-80 bg-[#d4af37]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-10 w-96 h-96 bg-[#162e27]/50 rounded-full blur-3xl pointer-events-none" />
-
+    <section id="about" className="py-20 lg:py-28 bg-[#FAF8F5] relative overflow-hidden border-b border-[#E8E3DA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
+        {/* Section Kicker & Headline */}
         <div className="max-w-3xl mb-16">
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#d4af37] mb-3">
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#C5A059] mb-3">
             <Home className="w-4 h-4" />
-            <span>Our Homestay Story & Philosophy</span>
+            <span>The Fairy Nest Philosophy</span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#f4efe6] tracking-tight leading-tight">
-            A quiet sanctuary crafted for comfort, warmth, and self-reliant living.
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#162A24] tracking-tight leading-[1.18] text-balance">
+            Thoughtfully designed for comfort, privacy, and true home-cooked freedom.
           </h2>
         </div>
 
-        {/* 2-Column Asymmetric Narrative & Facts Grid */}
+        {/* 2-Column Asymmetric Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          {/* Left Narrative Block */}
-          <div className="lg:col-span-7 space-y-6 text-[#c4d6cf] text-base sm:text-lg leading-relaxed">
+          {/* Left Narrative Prose */}
+          <div className="lg:col-span-7 space-y-6 text-[#52665F] text-base sm:text-lg leading-relaxed">
             <p>
-              Tucked away on <strong className="text-[#f4efe6]">Gandhi Basti Road in the scenic Sarania Hills</strong> of Guwahati, <span className="text-[#e5c57a] font-medium">Fairy Nest Homestay</span> was established with a singular vision: to offer travelers a peaceful, secure, and genuine home-away-from-home in the Gateway to Northeast India.
+              Perched peacefully on <strong className="text-[#162A24]">Gandhi Basti Road in the scenic Sarania Hills</strong> of Guwahati, <span className="text-[#162A24] font-semibold">Fairy Nest Homestay</span> offers visitors an alternative to impersonal commercial hotels. Here, you step into a tranquil, secure, and clean environment where everyday travel feels effortless.
             </p>
 
             <p>
-              Unlike crowded commercial hotels, our homestay provides self-contained living spaces where every guest enjoys complete autonomy. Every <strong className="text-[#f4efe6]">1BHK, 2BHK, and Penthouse studio includes its own attached private kitchen and private bathroom</strong>. Whether you are brewing morning tea, cooking comforting dietary meals, or unwinding after exploring Kamakhya or the Brahmaputra riverfront, you are in a space that feels like your own.
+              Our defining distinction is complete self-reliance: <strong className="text-[#162A24]">every 1BHK apartment, 2BHK suite, and Penthouse studio includes its own attached private kitchen and private bathroom</strong>. Whether you want to boil fresh milk for children, brew rich Assam tea at dawn, or prepare your own comforting meals during a multi-day Guwahati visit, you have everything right inside your room.
             </p>
 
             <p>
-              We take genuine pride in what our guests cherish most: <strong className="text-[#f4efe6]">warm, attentive management</strong>, a welcoming environment for couples, clean well-kept rooms, and a <strong className="text-[#f4efe6]">complimentary breakfast</strong> to start your day with comfort.
+              We take deep pride in the qualities our guests value most: a warm and welcoming environment for couples, clean well-kept bedding, attentive local host care, and a <strong className="text-[#162A24]">complimentary morning breakfast</strong> that sets a comforting tone for your day.
             </p>
 
-            {/* Authentic Pillars Strip */}
+            {/* Core Values Row */}
             <div className="pt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="p-4 rounded-xl bg-[#142823] border border-[#23453b]">
-                <div className="flex items-center gap-2 text-[#e5c57a] font-semibold text-sm mb-1.5">
-                  <Heart className="w-4 h-4 text-rose-400" />
-                  <span>Kind & Loving Management</span>
+              <div className="p-5 rounded-2xl bg-[#F4EFE6] border border-[#E8E3DA]">
+                <div className="flex items-center gap-2 text-[#162A24] font-semibold text-sm mb-1.5">
+                  <Heart className="w-4 h-4 text-rose-500" />
+                  <span>Kind Host Management</span>
                 </div>
-                <p className="text-xs text-[#9fb3ab] leading-normal">
-                  Consistently recognized in 132 Google reviews for thoughtful host hospitality and prompt assistance.
+                <p className="text-xs text-[#52665F] leading-normal">
+                  Celebrated across 132 Google reviews for the kindness, loving care, and prompt assistance of our host family.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#142823] border border-[#23453b]">
-                <div className="flex items-center gap-2 text-[#e5c57a] font-semibold text-sm mb-1.5">
-                  <Coffee className="w-4 h-4 text-[#d4af37]" />
-                  <span>Complimentary Breakfast</span>
+              <div className="p-5 rounded-2xl bg-[#F4EFE6] border border-[#E8E3DA]">
+                <div className="flex items-center gap-2 text-[#162A24] font-semibold text-sm mb-1.5">
+                  <Coffee className="w-4 h-4 text-[#C5A059]" />
+                  <span>Fresh Morning Breakfast</span>
                 </div>
-                <p className="text-xs text-[#9fb3ab] leading-normal">
-                  Fresh morning breakfast served to all guests, celebrated as a standout feature of your stay.
+                <p className="text-xs text-[#52665F] leading-normal">
+                  Enjoy hot breakfast paired with authentic Assam tea included complimentary with your stay.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Verified Facts & Guidelines Card */}
+          {/* Right Column: Verified Profile Card */}
           <div className="lg:col-span-5">
-            <div className="rounded-2xl p-6 sm:p-8 bg-gradient-to-b from-[#152c25] to-[#0d1815] border border-[#d4af37]/30 shadow-xl relative">
-              <div className="flex items-center justify-between border-b border-[#23453b] pb-4 mb-6">
+            <div className="rounded-3xl p-7 sm:p-8 bg-white border border-[#E8E3DA] shadow-lg relative">
+              
+              <div className="flex items-center justify-between border-b border-[#E8E3DA] pb-5 mb-6">
                 <div>
-                  <span className="text-xs font-semibold text-[#d4af37] uppercase tracking-wider block">Verified Details</span>
-                  <h3 className="font-serif text-lg font-bold text-[#f4efe6]">Fairy Nest Homestay Profile</h3>
+                  <span className="text-[11px] font-semibold uppercase tracking-wider text-[#C5A059] block">
+                    Verified Profile
+                  </span>
+                  <h3 className="font-serif text-xl font-bold text-[#162A24]">
+                    Fairy Nest Homestay
+                  </h3>
                 </div>
                 <div className="text-right">
-                  <span className="text-lg font-bold text-[#e5c57a] block leading-none">4.1 ⭐</span>
-                  <span className="text-[10px] text-[#9fb3ab]">132 Reviews</span>
+                  <div className="text-xl font-serif font-bold text-[#162A24] leading-none">
+                    4.1 ⭐
+                  </div>
+                  <span className="text-[11px] text-[#7E948D]">132 Google Reviews</span>
                 </div>
               </div>
 
-              <ul className="space-y-4 text-sm">
+              {/* Verified Checklist */}
+              <ul className="space-y-4 text-xs sm:text-sm text-[#52665F]">
                 <li className="flex items-start gap-3">
-                  <MapPin className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
+                  <div className="w-5 h-5 rounded-full bg-[#EDE6D9] text-[#162A24] flex items-center justify-center shrink-0 mt-0.5">
+                    <Check className="w-3 h-3 stroke-[3]" />
+                  </div>
                   <div>
-                    <strong className="text-[#f4efe6] block text-xs">Exact Location</strong>
-                    <span className="text-xs text-[#9fb3ab]">
-                      Gandhi Basti, Sarania Hills, Guwahati-3 (Opposite Nabagraha Than area)
-                    </span>
+                    <strong className="text-[#162A24] block">Attached Kitchen in Every Unit</strong>
+                    <span className="text-xs text-[#7E948D]">Private cooking setups across all 1BHK, 2BHK, & Studios</span>
                   </div>
                 </li>
 
                 <li className="flex items-start gap-3">
-                  <ShieldCheck className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
+                  <div className="w-5 h-5 rounded-full bg-[#EDE6D9] text-[#162A24] flex items-center justify-center shrink-0 mt-0.5">
+                    <Check className="w-3 h-3 stroke-[3]" />
+                  </div>
                   <div>
-                    <strong className="text-[#f4efe6] block text-xs">Stay Policy</strong>
-                    <span className="text-xs text-[#9fb3ab]">
-                      Couple Friendly & Family Welcoming with valid government ID check
-                    </span>
+                    <strong className="text-[#162A24] block">Couple & Family Friendly Policy</strong>
+                    <span className="text-xs text-[#7E948D]">Safe, respectful, and private environment (Valid ID required)</span>
                   </div>
                 </li>
 
                 <li className="flex items-start gap-3">
-                  <Sparkles className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
+                  <div className="w-5 h-5 rounded-full bg-[#EDE6D9] text-[#162A24] flex items-center justify-center shrink-0 mt-0.5">
+                    <Check className="w-3 h-3 stroke-[3]" />
+                  </div>
                   <div>
-                    <strong className="text-[#f4efe6] block text-xs">Available Units</strong>
-                    <span className="text-xs text-[#9fb3ab]">
-                      1BHK Flats, 2BHK Apartments, Penthouse (1RK) & Single Room (Units 1 to 13)
-                    </span>
+                    <strong className="text-[#162A24] block">Prime Sarania Hills Location</strong>
+                    <span className="text-xs text-[#7E948D]">Gandhi Basti, Guwahati-3 · 0.5 km from Paltan Bazar hub</span>
                   </div>
                 </li>
 
                 <li className="flex items-start gap-3">
-                  <Home className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
+                  <div className="w-5 h-5 rounded-full bg-[#EDE6D9] text-[#162A24] flex items-center justify-center shrink-0 mt-0.5">
+                    <Check className="w-3 h-3 stroke-[3]" />
+                  </div>
                   <div>
-                    <strong className="text-[#f4efe6] block text-xs">Self-Catering Standard</strong>
-                    <span className="text-xs text-[#9fb3ab]">
-                      100% of rooms equipped with private attached kitchen and attached bathroom
-                    </span>
+                    <strong className="text-[#162A24] block">13 Individual Units (Units 1 to 13)</strong>
+                    <span className="text-xs text-[#7E948D]">Documented on Instagram highlights with tailored options</span>
                   </div>
                 </li>
               </ul>
 
-              {/* Approachable host quote note */}
-              <div className="mt-6 pt-5 border-t border-[#23453b] text-xs text-[#c4d6cf] italic bg-[#0f201b]/60 p-3 rounded-lg border border-dashed border-[#d4af37]/20">
-                "We want every guest to experience genuine comfort at fair budget rates. Whether you need an early check-in or guidance on Guwahati, we are always reachable."
+              {/* Host Message Quote */}
+              <div className="mt-6 p-4 rounded-xl bg-[#FAF8F5] border border-[#E8E3DA] text-xs text-[#52665F] italic leading-relaxed">
+                "Our aim is to provide genuine warmth at affordable rates so travelers have a peaceful space of their own in Guwahati."
               </div>
 
-              {/* Direct Booking CTA */}
-              <div className="mt-5">
+              {/* Action Button */}
+              <div className="mt-6">
                 <a
-                  href={`https://wa.me/${HOMESTAY_INFO.phoneRaw}?text=${encodeURIComponent('Hello! I would like to inquire about staying at Fairy Nest Homestay.')}`}
+                  href={`https://wa.me/${HOMESTAY_INFO.phoneRaw}?text=${encodeURIComponent('Hello! I would like to inquire about booking a stay at Fairy Nest Homestay.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-semibold text-xs text-[#0e1a17] bg-[#d4af37] hover:bg-[#e6c86e] transition-colors"
+                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-semibold text-xs text-white bg-[#162A24] hover:bg-[#223F36] transition-colors"
                 >
-                  <span>Chat Directly with Host</span>
+                  <span>Inquire Directly with Host</span>
                 </a>
               </div>
 

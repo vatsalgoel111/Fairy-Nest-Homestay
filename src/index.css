@@ -3,20 +3,38 @@
 @theme {
   --font-serif: "Playfair Display", Georgia, serif;
   --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
-  --color-nest-dark: #0e1a17;
-  --color-nest-forest: #162a24;
-  --color-nest-pine: #1d362f;
-  --color-nest-surface: #223f37;
-  --color-nest-gold: #d4af37;
-  --color-nest-gold-light: #e6c86e;
-  --color-nest-cream: #f4efe6;
-  --color-nest-muted: #9fb3ab;
+  
+  /* Modern Boutique Airbnb Luxe Palette */
+  --color-canvas-ivory: #FAF8F5;
+  --color-canvas-linen: #F4EFE6;
+  --color-canvas-sand: #EDE6D9;
+  --color-canvas-card: #FFFFFF;
+  
+  --color-forest-dark: #11211C;
+  --color-forest-pine: #162A24;
+  --color-forest-surface: #223F36;
+  
+  --color-accent-gold: #C5A059;
+  --color-accent-gold-light: #E0C788;
+  --color-accent-gold-dark: #A38038;
+  
+  --color-text-primary: #162A24;
+  --color-text-secondary: #52665F;
+  --color-text-muted: #7E948D;
+  --color-border-hairline: #E8E3DA;
 }
 
 html {
   font-family: var(--font-sans);
+  background-color: var(--color-canvas-ivory);
+  color: var(--color-text-primary);
+  scroll-behavior: smooth;
 }
 
-.font-display {
+.font-serif {
   font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
 }
