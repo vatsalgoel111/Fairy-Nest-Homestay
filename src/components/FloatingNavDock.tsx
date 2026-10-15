@@ -45,13 +45,13 @@ export const FloatingNavDock: React.FC = () => {
       }`}
     >
       <nav 
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4 w-full"
+        className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4 w-full"
         aria-label="Main Navigation"
       >
         {/* Brand Lockup */}
         <a 
           href="#hero" 
-          className="flex items-center gap-2 group shrink-0 focus:outline-none focus:ring-1 focus:ring-[#D4AF37] rounded-md transition-opacity hover:opacity-90" 
+          className="flex items-center gap-2 group shrink-0 focus:outline-none focus:ring-1 focus:ring-[#D4AF37] rounded-md transition-opacity hover:opacity-90 min-w-0" 
           aria-label="Fairy Nest Homestay Home"
           onClick={() => setMobileMenuOpen(false)}
         >
@@ -97,7 +97,7 @@ export const FloatingNavDock: React.FC = () => {
         </div>
 
         {/* Right CTA Cluster */}
-        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
           {/* Direct Phone Call Button */}
           <a
             href={`tel:+${HOMESTAY_INFO.phoneRaw}`}
@@ -117,13 +117,13 @@ export const FloatingNavDock: React.FC = () => {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className={`inline-flex items-center gap-2 px-4 py-2 sm:px-4.5 sm:py-2.5 rounded-lg text-xs font-bold transition-all shadow-sm active:scale-95 cursor-pointer ${
+            className={`inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4.5 sm:py-2.5 rounded-lg text-xs font-bold transition-all shadow-sm active:scale-95 cursor-pointer shrink-0 ${
               scrolled
                 ? 'text-white bg-[#14241E] hover:bg-[#1F372C] hover:shadow-md'
                 : 'text-[#0D1814] bg-gradient-to-r from-[#F0D58C] via-[#E2BC5A] to-[#D4AF37] hover:brightness-105 shadow-[#D4AF37]/25 hover:shadow-md'
             }`}
           >
-            <MessageCircle className={`w-4 h-4 ${scrolled ? 'text-[#E2BC5A]' : 'text-[#0D1814]'}`} />
+            <MessageCircle className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${scrolled ? 'text-[#E2BC5A]' : 'text-[#0D1814]'}`} />
             <span className="hidden sm:inline">Book on WhatsApp</span>
             <span className="sm:hidden">Book Now</span>
           </a>
@@ -132,7 +132,7 @@ export const FloatingNavDock: React.FC = () => {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`lg:hidden p-2 rounded-lg transition-colors border ${
+            className={`lg:hidden p-2 rounded-lg transition-colors border shrink-0 ${
               scrolled
                 ? 'text-[#14241E] bg-[#F2EDE4] hover:bg-[#EAE2D3] border-[#E0D7C8]'
                 : 'text-white bg-white/10 hover:bg-white/15 border-white/20'

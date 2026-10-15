@@ -201,10 +201,10 @@ export const SanctuaryHero: React.FC = () => {
   return (
     <section 
       id="hero" 
-      className="relative w-full min-h-[100svh] lg:h-screen lg:max-h-screen flex flex-col justify-between overflow-x-hidden overflow-y-visible bg-[#0D1411] text-white"
+      className="relative w-full max-w-full min-h-[100svh] lg:h-screen lg:max-h-screen flex flex-col justify-between overflow-hidden bg-[#0D1411] text-white"
     >
       {/* BACKGROUND IMAGE: Responsive full-bleed cover */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none w-full h-full">
         <img
           key={activeScene.id}
           src={currentImageSrc}
@@ -214,7 +214,7 @@ export const SanctuaryHero: React.FC = () => {
               setCurrentImageSrc(activeScene.fallbackUrl);
             }
           }}
-          className="w-full h-full object-cover object-center transition-opacity duration-700 brightness-[0.80]"
+          className="w-full h-full max-w-full object-cover object-center transition-opacity duration-700 brightness-[0.80] select-none"
           referrerPolicy="no-referrer"
           loading="eager"
         />
@@ -267,26 +267,26 @@ export const SanctuaryHero: React.FC = () => {
       </div>
 
       {/* MIDDLE ZONE: Horizontal Touch-Friendly Photo Room Switcher */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-auto py-2 sm:py-3">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-auto py-2 sm:py-3 overflow-hidden">
         
         {/* Active Scene Spotlight */}
         <div className="flex items-center justify-between gap-3 mb-2">
-          <div className="flex items-center gap-2">
-            <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-[#E2BC5A] text-black font-bold text-[11px] sm:text-xs tracking-wide uppercase shadow-sm">
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-[#E2BC5A] text-black font-bold text-[11px] sm:text-xs tracking-wide uppercase shadow-sm shrink-0">
               {activeScene.highlight}
             </span>
-            <span className="text-xs sm:text-sm font-serif font-bold text-white drop-shadow-md hidden sm:inline">
+            <span className="text-xs sm:text-sm font-serif font-bold text-white drop-shadow-md hidden sm:inline truncate">
               {activeScene.name}
             </span>
           </div>
 
-          <span className="text-[11px] sm:text-xs text-white/80 hidden sm:inline">
+          <span className="text-[11px] sm:text-xs text-white/80 hidden sm:inline shrink-0">
             Tap room to view real photos
           </span>
         </div>
 
         {/* Space Switcher Controls: Smooth Horizontal Carousel on Mobile */}
-        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth pb-1 -mx-4 px-4 sm:mx-0 sm:px-0">
+        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth pb-1 w-full max-w-full">
           {HERO_SCENES.map((scene, idx) => (
             <button
               key={scene.id}
@@ -545,10 +545,10 @@ export const SanctuaryHero: React.FC = () => {
             </div>
 
             {/* 4. PRICE ESTIMATE & PRIMARY ACTION BUTTONS */}
-            <div className="col-span-12 lg:col-span-4 flex items-center justify-between gap-3 pt-1 sm:pt-0 lg:pl-2">
+            <div className="col-span-12 lg:col-span-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2.5 sm:gap-3 pt-2 sm:pt-0 lg:pl-2 border-t border-white/10 sm:border-t-0 w-full min-w-0">
               
-              <div className="text-left shrink-0">
-                <span className="text-[10px] uppercase font-bold tracking-wider text-white/70 block">
+              <div className="flex items-baseline justify-between sm:block text-left shrink-0">
+                <span className="text-[10px] sm:text-[11px] uppercase font-bold tracking-wider text-white/70 block">
                   Est. Total (Free Breakfast)
                 </span>
                 <div className="flex items-baseline gap-1.5">
@@ -561,11 +561,11 @@ export const SanctuaryHero: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 grow sm:grow-0 justify-end">
+              <div className="flex items-center gap-2 w-full sm:w-auto justify-end min-w-0">
                 {/* Direct Call Button */}
                 <a
                   href={`tel:+${HOMESTAY_INFO.phoneRaw}`}
-                  className="p-2.5 sm:p-3 rounded-xl text-white bg-white/15 hover:bg-white/25 border border-white/20 transition-all shrink-0 active:scale-95"
+                  className="p-2.5 sm:p-3 rounded-xl text-white bg-white/15 hover:bg-white/25 border border-white/20 transition-all shrink-0 active:scale-95 flex items-center justify-center"
                   aria-label="Call Host directly"
                   title="Call host directly: +91 70021 76711"
                 >
@@ -575,10 +575,10 @@ export const SanctuaryHero: React.FC = () => {
                 {/* Primary WhatsApp Booking Action */}
                 <button
                   onClick={handleWhatsAppBooking}
-                  className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#25D366] hover:bg-[#20BD5A] shadow-lg hover:shadow-green-500/20 transition-all cursor-pointer active:scale-95 whitespace-nowrap"
+                  className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm text-white bg-[#25D366] hover:bg-[#20BD5A] shadow-lg hover:shadow-green-500/20 transition-all cursor-pointer active:scale-95 min-w-0"
                 >
                   <MessageCircle className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-white fill-white shrink-0" />
-                  <span>Book on WhatsApp</span>
+                  <span className="truncate">Book on WhatsApp</span>
                 </button>
               </div>
 
