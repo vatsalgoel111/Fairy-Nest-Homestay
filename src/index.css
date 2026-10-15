@@ -1,40 +1,89 @@
 @import "tailwindcss";
 
 @theme {
-  --font-serif: "Playfair Display", Georgia, serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --font-display: "Cinzel", Georgia, serif;
   --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
   
-  /* Modern Boutique Airbnb Luxe Palette */
-  --color-canvas-ivory: #FAF8F5;
-  --color-canvas-linen: #F4EFE6;
-  --color-canvas-sand: #EDE6D9;
+  /* Modern Boutique Airbnb Luxe Warm Ivory Palette */
+  --color-canvas: #FAF8F5;
+  --color-canvas-subtle: #F4EFE8;
   --color-canvas-card: #FFFFFF;
-  
-  --color-forest-dark: #11211C;
-  --color-forest-pine: #162A24;
-  --color-forest-surface: #223F36;
-  
-  --color-accent-gold: #C5A059;
-  --color-accent-gold-light: #E0C788;
-  --color-accent-gold-dark: #A38038;
-  
-  --color-text-primary: #162A24;
-  --color-text-secondary: #52665F;
-  --color-text-muted: #7E948D;
-  --color-border-hairline: #E8E3DA;
+  --color-forest: #14241E;
+  --color-forest-dark: #0D1714;
+  --color-forest-light: #233D33;
+  --color-gold: #B8860B;
+  --color-gold-light: #D4AF37;
+  --color-gold-warm: #E2BC5A;
+  --color-gold-soft: #FBF6EB;
+  --color-charcoal: #1C2723;
+  --color-body: #3D4F47;
+  --color-body-muted: #64756E;
+  --color-stone-border: #E5DFD4;
 }
 
 html {
   font-family: var(--font-sans);
-  background-color: var(--color-canvas-ivory);
-  color: var(--color-text-primary);
+  background-color: #FAF8F5;
+  color: #1C2723;
   scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #FAF8F5;
+  color: #1C2723;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6, .font-serif, .font-heading {
+  font-family: var(--font-serif);
+  letter-spacing: -0.015em;
+}
+
+p, span, button, input, select, textarea, label, a, .font-sans {
+  font-family: var(--font-sans);
 }
 
 .font-serif {
   font-family: var(--font-serif);
 }
 
+.font-heading {
+  font-family: var(--font-serif);
+}
+
 .font-sans {
   font-family: var(--font-sans);
+}
+
+/* Boutique Luxe Clean Panels */
+.luxe-panel {
+  background: #FFFFFF;
+  border: 1px solid #E5DFD4;
+  box-shadow: 0 4px 20px -2px rgba(22, 42, 36, 0.05);
+}
+
+.luxe-panel-subtle {
+  background: #F4EFE8;
+  border: 1px solid #E5DFD4;
+}
+
+.luxe-panel-forest {
+  background: #14241E;
+  color: #FAF8F5;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+/* Hide scrollbar for category tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
