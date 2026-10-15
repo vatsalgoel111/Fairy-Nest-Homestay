@@ -1,6 +1,14 @@
-import React, { useState } from 'react';
-import { Send, CheckCircle, AlertCircle, Phone, MessageCircle, MapPin, Clock, HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Send, CheckCircle, AlertCircle, Phone, MessageCircle, MapPin, Clock, HelpCircle, ChevronDown, ChevronUp, Check, Bed } from 'lucide-react';
 import { HOMESTAY_INFO, FAQ_LIST } from '../data/homestayData';
+
+const ROOM_INQUIRY_OPTIONS = [
+  { value: '1BHK Apartment (Attached Kitchen)', label: '1BHK Apartment', detail: 'Attached Kitchen & Bath · Couple Friendly' },
+  { value: '2BHK Family Flat (Attached Kitchen)', label: '2BHK Family Flat', detail: '2 Bedrooms · Full Kitchen · Up to 6 Guests' },
+  { value: 'Penthouse 1RK Studio (Attached Kitchen)', label: 'Penthouse 1RK Studio', detail: 'Top Floor Breeze · Kitchenette' },
+  { value: 'Unit-11 Solo Room (Private Bath)', label: 'Unit-11 Solo Room', detail: 'Private Bath · Work Desk · Solo Guest' },
+  { value: 'General Stay Enquiry', label: 'General Stay Enquiry', detail: 'Flexible dates / Custom group request' },
+];
 
 export const InstantEnquirySection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +23,18 @@ export const InstantEnquirySection: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+  const [roomDropdownOpen, setRoomDropdownOpen] = useState(false);
+  const roomDropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleOutside = (e: MouseEvent) => {
+      if (roomDropdownRef.current && !roomDropdownRef.current.contains(e.target as Node)) {
+        setRoomDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleOutside);
+    return () => document.removeEventListener('mousedown', handleOutside);
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
@@ -193,22 +213,65 @@ export const InstantEnquirySection: React.FC = () => {
                     />
                   </div>
 
-                  <div>
+                  <div className="relative" ref={roomDropdownRef}>
                     <label className="block text-xs sm:text-sm font-bold uppercase tracking-wider text-[#14241E] mb-2">
                       Select Room Type
                     </label>
-                    <select
-                      name="serviceInterestedIn"
-                      value={formData.serviceInterestedIn}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#E5DFD4] text-sm sm:text-base text-[#14241E] focus:outline-none focus:border-[#B8860B] transition-colors cursor-pointer"
+
+                    <button
+                      type="button"
+                      onClick={() => setRoomDropdownOpen(!roomDropdownOpen)}
+                      className={`w-full flex items-center justify-between gap-2 px-4 py-3 rounded-xl bg-[#FAF8F5] border text-sm sm:text-base text-[#14241E] transition-all text-left cursor-pointer ${
+                        roomDropdownOpen
+                          ? 'border-[#B8860B] ring-2 ring-[#B8860B]/20 bg-white'
+                          : 'border-[#E5DFD4] hover:border-[#B8860B]/60'
+                      }`}
+                      aria-expanded={roomDropdownOpen}
                     >
-                      <option value="1BHK Apartment (Attached Kitchen)">1BHK Apartment (Attached Kitchen & Bath)</option>
-                      <option value="2BHK Family Flat (Attached Kitchen)">2BHK Family Flat (Attached Kitchen & Bath)</option>
-                      <option value="Penthouse 1RK Studio (Attached Kitchen)">Penthouse 1RK Studio (Top Floor Breeze)</option>
-                      <option value="Unit-11 Solo Room (Private Bath)">Unit-11 Solo Room (Private Bath)</option>
-                      <option value="General Stay Enquiry">General Stay Enquiry</option>
-                    </select>
+                      <div className="flex items-center gap-2 truncate">
+                        <Bed className="w-4 h-4 text-[#B8860B] shrink-0" />
+                        <span className="font-semibold truncate">
+                          {formData.serviceInterestedIn}
+                        </span>
+                      </div>
+                      <ChevronDown className={`w-4 h-4 text-[#B8860B] shrink-0 transition-transform duration-200 ${roomDropdownOpen ? 'rotate-180' : ''}`} />
+                    </button>
+
+                    {roomDropdownOpen && (
+                      <div className="absolute top-full left-0 right-0 mt-1.5 z-50 rounded-2xl bg-white border border-[#E5DFD4] shadow-2xl p-2 space-y-1 animate-in fade-in slide-in-from-top-2 duration-150 max-h-64 overflow-y-auto">
+                        {ROOM_INQUIRY_OPTIONS.map((opt) => {
+                          const isSelected = formData.serviceInterestedIn === opt.value;
+                          return (
+                            <button
+                              key={opt.value}
+                              type="button"
+                              onClick={() => {
+                                setFormData(prev => ({ ...prev, serviceInterestedIn: opt.value }));
+                                setRoomDropdownOpen(false);
+                              }}
+                              className={`w-full flex items-center justify-between gap-3 px-3 py-2.5 rounded-xl text-left transition-colors cursor-pointer ${
+                                isSelected
+                                  ? 'bg-[#14241E] text-white'
+                                  : 'hover:bg-[#FAF8F5] text-[#14241E]'
+                              }`}
+                            >
+                              <div className="min-w-0">
+                                <span className="font-bold text-sm block">
+                                  {opt.label}
+                                </span>
+                                <span className={`text-xs block truncate ${isSelected ? 'text-white/80' : 'text-[#64756E]'}`}>
+                                  {opt.detail}
+                                </span>
+                              </div>
+
+                              {isSelected && (
+                                <Check className="w-4 h-4 text-[#E2BC5A] shrink-0" />
+                              )}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    )}
                   </div>
                 </div>
 

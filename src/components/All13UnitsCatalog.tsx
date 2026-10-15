@@ -178,11 +178,11 @@ export const All13UnitsCatalog: React.FC = () => {
         {/* Modal Inspector for Selected Unit */}
         {activeModalUnit && (
           <div 
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200 overflow-y-auto"
             onClick={() => setActiveModalUnit(null)}
           >
             <div 
-              className="bg-white rounded-3xl border border-[#E2DAD0] shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+              className="bg-white rounded-2xl sm:rounded-3xl border border-[#E2DAD0] shadow-2xl max-w-2xl w-full max-h-[92dvh] overflow-y-auto my-auto"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Visual Scene */}

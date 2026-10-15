@@ -17,7 +17,7 @@ export const FloatingWhatsAppPill: React.FC = () => {
   )}`;
 
   return (
-    <aside aria-label="Quick contact" className="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-2">
+    <aside aria-label="Quick contact" className="fixed bottom-3.5 right-3.5 sm:bottom-5 sm:right-5 z-40 flex flex-col items-end gap-2">
       {/* Tooltip Bubble */}
       {showTooltip && (
         <div className="hidden sm:flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-white shadow-xl text-sm text-[#14241E] font-semibold animate-in fade-in slide-in-from-bottom-2 duration-300 border border-[#E5DFD4]">

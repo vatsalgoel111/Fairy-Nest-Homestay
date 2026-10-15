@@ -230,7 +230,7 @@ export const InteractiveSuiteExplorer: React.FC = () => {
               
               <div>
                 {/* Main Large Photograph */}
-                <div className="relative aspect-[4/3] w-full overflow-hidden">
+                <div className="relative aspect-[16/10] sm:aspect-[4/3] w-full overflow-hidden">
                   <HomestayVisualScene
                     src={activePhoto.src}
                     title={`${activeSuite.title} — ${activePhoto.label}`}
@@ -246,7 +246,7 @@ export const InteractiveSuiteExplorer: React.FC = () => {
                       <Camera className="w-4 h-4 text-[#B8860B]" />
                       <span>Real Room Photos ({selectedPhotoIndex + 1}/{activeSuite.gallery.length})</span>
                     </span>
-                    <span className="text-xs text-[#64756E] font-medium">Click any photo to view</span>
+                    <span className="text-xs text-[#64756E] font-medium">Click thumbnail to view</span>
                   </div>
 
                   <div className="grid grid-cols-4 gap-2.5">
@@ -269,7 +269,7 @@ export const InteractiveSuiteExplorer: React.FC = () => {
                             className="w-full h-full object-cover"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex items-end p-1.5">
-                            <span className="text-xs font-semibold text-white truncate drop-shadow">
+                            <span className="text-[11px] font-semibold text-white truncate drop-shadow">
                               {photo.label}
                             </span>
                           </div>
@@ -278,32 +278,77 @@ export const InteractiveSuiteExplorer: React.FC = () => {
                     })}
                   </div>
                 </div>
+
+                {/* In-Suite Kitchen & Bathroom Amenities Included */}
+                <div className="p-4 sm:p-5 bg-white border-t border-[#EDE6DC]">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs sm:text-sm font-bold text-[#8C6615] uppercase tracking-wider flex items-center gap-1.5">
+                      <Sparkles className="w-4 h-4 text-[#B8860B]" />
+                      <span>Private In-Room Facilities</span>
+                    </span>
+                    <span className="text-xs text-[#2C6E49] font-semibold bg-[#E8F3ED] px-2.5 py-1 rounded-md">
+                      100% Attached & Private
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="p-3.5 rounded-xl bg-[#FAF8F5] border border-[#E5DFD4]">
+                      <div className="flex items-center gap-2 font-bold text-sm text-[#14241E] mb-2">
+                        <Utensils className="w-4 h-4 text-[#B8860B] shrink-0" />
+                        <span>Attached Kitchen</span>
+                      </div>
+                      <ul className="text-xs sm:text-sm text-[#52635B] space-y-1.5">
+                        {activeSuite.kitchenSpecs.map((spec, i) => (
+                          <li key={i} className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#B8860B] shrink-0" />
+                            <span>{spec}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl bg-[#FAF8F5] border border-[#E5DFD4]">
+                      <div className="flex items-center gap-2 font-bold text-sm text-[#14241E] mb-2">
+                        <Bath className="w-4 h-4 text-[#B8860B] shrink-0" />
+                        <span>Attached Bathroom</span>
+                      </div>
+                      <ul className="text-xs sm:text-sm text-[#52635B] space-y-1.5">
+                        {activeSuite.bathSpecs.map((spec, i) => (
+                          <li key={i} className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#B8860B] shrink-0" />
+                            <span>{spec}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Bottom Quick Facts Strip */}
-              <div className="p-4 sm:p-6 bg-white border-t border-[#EDE6DC] grid grid-cols-2 gap-3.5 text-sm sm:text-base">
-                <div className="flex items-center gap-2.5 text-[#14241E]">
+              <div className="p-4 sm:p-5 bg-[#F4EFE8] border-t border-[#EDE6DC] grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs sm:text-sm">
+                <div className="flex items-center gap-2 text-[#14241E]">
                   <Users className="w-4.5 h-4.5 text-[#B8860B] shrink-0" />
                   <span className="font-semibold">{activeSuite.capacity}</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-[#14241E]">
+                <div className="flex items-center gap-2 text-[#14241E]">
                   <Utensils className="w-4.5 h-4.5 text-[#B8860B] shrink-0" />
-                  <span className="font-semibold">Attached Kitchen Included</span>
+                  <span className="font-semibold">Kitchen Ready</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-[#14241E]">
+                <div className="flex items-center gap-2 text-[#14241E]">
                   <Bath className="w-4.5 h-4.5 text-[#B8860B] shrink-0" />
-                  <span className="font-semibold">Private Attached Bathroom</span>
+                  <span className="font-semibold">Private Bath</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-[#14241E]">
+                <div className="flex items-center gap-2 text-[#14241E]">
                   <Coffee className="w-4.5 h-4.5 text-[#B8860B] shrink-0" />
-                  <span className="font-semibold">Free Daily Breakfast</span>
+                  <span className="font-semibold">Free Breakfast</span>
                 </div>
               </div>
             </div>
 
             {/* Details & Specs Column */}
-            <div className="lg:col-span-6 p-6 sm:p-10 flex flex-col justify-between">
-              <div className="space-y-5">
+            <div className="lg:col-span-6 p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
+              <div className="space-y-6">
                 
                 <div>
                   <div className="inline-block px-3.5 py-1.5 rounded-full bg-[#FBF6EB] border border-[#E8D4A2] text-xs sm:text-sm font-bold text-[#8C6615] mb-2.5">
@@ -349,36 +394,12 @@ export const InteractiveSuiteExplorer: React.FC = () => {
                   </div>
                 </div>
 
-                {/* In-Room Kitchen & Bathroom Specs */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
-                  <div className="p-4 rounded-xl bg-[#FAF8F5] border border-[#EDE6DC]">
-                    <div className="flex items-center gap-2 font-bold text-sm sm:text-base text-[#14241E] mb-2">
-                      <Utensils className="w-4.5 h-4.5 text-[#B8860B]" />
-                      <span>Kitchen Items in Room</span>
-                    </div>
-                    <ul className="text-sm text-[#52635B] space-y-1.5">
-                      {activeSuite.kitchenSpecs.map((spec, i) => (
-                        <li key={i} className="flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#B8860B]" />
-                          <span>{spec}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="p-4 rounded-xl bg-[#FAF8F5] border border-[#EDE6DC]">
-                    <div className="flex items-center gap-2 font-bold text-sm sm:text-base text-[#14241E] mb-2">
-                      <Bath className="w-4.5 h-4.5 text-[#B8860B]" />
-                      <span>Bathroom Facilities</span>
-                    </div>
-                    <ul className="text-sm text-[#52635B] space-y-1.5">
-                      {activeSuite.bathSpecs.map((spec, i) => (
-                        <li key={i} className="flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#B8860B]" />
-                          <span>{spec}</span>
-                        </li>
-                      ))}
-                    </ul>
+                {/* Host Hospitality & Colony Assurance */}
+                <div className="p-4 rounded-xl bg-[#FAF8F5] border border-[#EDE6DC] flex items-start gap-3">
+                  <ShieldCheck className="w-5 h-5 text-[#2C6E49] shrink-0 mt-0.5" />
+                  <div className="text-xs sm:text-sm text-[#52635B] leading-relaxed">
+                    <strong className="text-[#14241E] block font-semibold mb-0.5">Quiet Hillside Colony · Safe & Private</strong>
+                    Valid Govt photo ID required for all staying guests at check-in. Completely family & couple friendly.
                   </div>
                 </div>
 
@@ -387,8 +408,8 @@ export const InteractiveSuiteExplorer: React.FC = () => {
               {/* Bottom Reservation Button */}
               <div className="pt-6 mt-6 border-t border-[#EDE6DC] flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-2 text-xs sm:text-sm text-[#64756E]">
-                  <ShieldCheck className="w-4.5 h-4.5 text-[#2C6E49] shrink-0" />
-                  <span>Valid photo ID required at check-in · Family-friendly and peaceful</span>
+                  <Coffee className="w-4.5 h-4.5 text-[#B8860B] shrink-0" />
+                  <span>Fresh Assam tea & home-style breakfast included</span>
                 </div>
 
                 <button
