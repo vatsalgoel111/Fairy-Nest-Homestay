@@ -12,7 +12,7 @@ import { FloatingWhatsAppPill } from './components/FloatingWhatsAppPill';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-[#1C2723] selection:bg-[#D4AF37]/30 selection:text-[#14241E] font-sans">
+    <div className="min-h-screen bg-[#FAF8F5] text-[#1C2723] selection:bg-[#D4AF37]/30 selection:text-[#14241E] font-sans overflow-x-hidden w-full max-w-full">
       {/* Modern Boutique Navigation Dock */}
       <FloatingNavDock />
 

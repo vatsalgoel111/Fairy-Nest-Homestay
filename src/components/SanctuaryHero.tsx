@@ -30,7 +30,7 @@ const HERO_SCENES: HeroScene[] = [
     shortName: 'Couple 1BHK',
     tagline: 'Warm fairy lights, cozy living corner, and private attached kitchen',
     unitType: '1bhk',
-    imageUrl: '/images/hero_homestay.jpg',
+    imageUrl: '/images/hero_cozy_warm.jpg',
     fallbackUrl: '/images/onebhk_couple.jpg',
     highlight: 'Fairy Lights · Couple Friendly · Private Bath'
   },

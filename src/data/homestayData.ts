@@ -302,7 +302,7 @@ export const ALL_13_UNITS: HomestayUnit[] = [
     typeLabel: "1BHK Apartment",
     tagline: "Gentle fairy lighting and soft double bed for sweet stays",
     badge: "Cozy Vibe",
-    imageUrl: "/images/hero_homestay.jpg",
+    imageUrl: "/images/hero_cozy_warm.jpg",
     description: "Private 1BHK flat with bedroom, warm fairy lights, attached kitchen, and clean bathroom. Very popular with visiting couples.",
     capacity: "1–3 Guests (Couple Friendly)",
     bedType: "1 Queen Bed",
